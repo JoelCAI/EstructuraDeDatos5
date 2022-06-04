@@ -87,15 +87,15 @@ namespace EstructuraDeDatos5
 			string opcion;
 
 			Console.Clear();
-			codigo = Validador.PedirCaracterString(" Ingrese el Código" +
+			codigo = Validador.PedirCaracterString(" Ingrese el Código del Producto" +
 											  "\n El documento debe estar entre este rango.", 6, 6);
 			if (BuscarProductoCodigo(codigo) == -1)
 			{
 				VerPersona();
 				Console.WriteLine("\n ¡En hora buena! Puede utilizar este Nombre para crear una Persona Nueva en su agenda");
-				nombre = Validador.PedirCaracterString("\n Ingrese el nombre de la Persona", 1, 15);
+				nombre = Validador.PedirCaracterString("\n Ingrese el nombre del Producto", 1, 15);
 				Console.Clear();
-				descripcion = Validador.PedirCaracterString("Ingrese el nombre de la Persona", 1, 200);
+				descripcion = Validador.PedirCaracterString("Ingrese la descripción del Producto", 1, 200);
 				Console.Clear();
 				costo = Validador.PedirIntMayor("\n Ingrese el Costo",0);
 
@@ -112,13 +112,13 @@ namespace EstructuraDeDatos5
 					productoLista.Add(codigo, p);
 					VerPersona();
 					VerPersonaDiccionario();
-					Console.WriteLine("\n Persona con Nombre *" + nombre + "* agregado exitósamente");
+					Console.WriteLine("\n Producto con Nombre *" + nombre + "* agregado exitósamente");
 					Validador.VolverMenu();
 				}
 				else
 				{
 					VerPersona();
-					Console.WriteLine("\n Como puede verificar no se creo ninguna Persona");
+					Console.WriteLine("\n Como puede verificar no se creo ningún Producto");
 					Validador.VolverMenu();
 
 				}
@@ -127,8 +127,8 @@ namespace EstructuraDeDatos5
 			else
 			{
 				VerPersona();
-				Console.WriteLine("\n Usted digitó el Documento *" + codigo + "*");
-				Console.WriteLine("\n Ya existe una persona con ese Documento");
+				Console.WriteLine("\n Usted digitó el Código *" + codigo + "*");
+				Console.WriteLine("\n Ya existe un Producto con ese código");
 				Console.WriteLine("\n Será direccionado nuevamente al Menú para que lo realice correctamente");
 				Validador.VolverMenu();
 
@@ -166,7 +166,7 @@ namespace EstructuraDeDatos5
 				}
 			}
 			VerPersona();
-			Console.WriteLine("Se ha grabado los datos de las personas en la Agenda correctamente");
+			Console.WriteLine("Se ha grabado los datos de los Productos correctamente");
 			Validador.VolverMenu();
 
 		}
@@ -272,8 +272,8 @@ namespace EstructuraDeDatos5
 		public void VerPersona()
 		{
 			Console.Clear();
-			Console.WriteLine("\n Personas en Agenda");
-			Console.WriteLine(" #\t\tDocumento.\t\tNombre.\t\tApellido.");
+			Console.WriteLine("\n Productos");
+			Console.WriteLine(" #\t\tCódigo.\t\tNombre.\t\tDescripción.");
 			for (int i = 0; i < Producto.Count; i++)
 			{
 				Console.Write(" " + (i + 1));
@@ -298,7 +298,7 @@ namespace EstructuraDeDatos5
 			{
 				KeyValuePair<string, Producto> persona = productoLista.ElementAt(i);
 
-				Console.WriteLine("\n Código: " + persona.Key);
+				Console.WriteLine("\n Código de Producto: " + persona.Key);
 				Producto personaValor = persona.Value;
 
 
